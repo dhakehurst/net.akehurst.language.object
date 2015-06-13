@@ -21,10 +21,14 @@ import net.akehurst.language.object.type.Type;
 
 public interface TypeContext {
 
+	Type getFor(Object object);
+
 	Type getStringLiteral();
 	Type getBooleanLiteral();
 	Type getNumberLiteral();
-	Type getFor(Object object);
+
+	Type getOrderedSetType(Type type);
+	Type getSequenceType(Type type);
 	
 	Property getProperty(Type type, String propertyName, Type...qualifierTypes);
 	

@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.akehurst.language.object.type;
+package net.akehurst.language.object.query.link;
 
-public interface Property {
+public class ObjectQueryLinkException extends Exception {
 
-	String getName();
-	
-	Type getType();
+	public ObjectQueryLinkException(String message, Throwable cause) {
+		super(message, cause);
+	}
 	
 }

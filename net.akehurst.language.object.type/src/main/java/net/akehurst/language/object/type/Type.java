@@ -19,16 +19,18 @@ import java.util.List;
 
 public interface Type {
 
+	List<Type> getTypeArguments();
+	
 	List<Type> getSuperTypes();
 	List<Type> getAllSuperTypes();
 	
 	List<Property> getProperties();
 	List<Property> getAllProperties();
-	Property getProperty(Type... qualifierTypes);
+	Property getProperty(String name, Type... qualifierTypes);
 	
 	List<Operation> getOperations();
 	List<Operation> getAllOperations();
-	Operation getOperation(Type... arguments);
+	Operation getOperation(String name, Type... parameterTypes);
 	
 	Boolean conformsTo(Type otherType);
 }
