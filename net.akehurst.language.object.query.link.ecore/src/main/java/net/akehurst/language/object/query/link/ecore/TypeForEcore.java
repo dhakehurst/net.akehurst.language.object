@@ -16,6 +16,7 @@
 package net.akehurst.language.object.query.link.ecore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClassifier;
@@ -28,26 +29,19 @@ import net.akehurst.language.object.type.Type;
 
 public class TypeForEcore implements Type {
 
-	public TypeForEcore(TypeContext context, EClassifier eClassifier) {
+	public TypeForEcore(TypeContext context, EClassifier eClassifier, Type...typeArguments) {
 		this.context = context;
 		this.eClassifier = eClassifier;
+		this.typeArguments = Arrays.asList(typeArguments);
 	}
 
 	TypeContext context;
 	EClassifier eClassifier;
 
-	List<Type> typeArguments_cache;
+	List<Type> typeArguments;
 
 	public List<Type> getTypeArguments() {
-		if (null == typeArguments_cache) {
-			this.typeArguments_cache = new ArrayList<>();
-			for (ETypeParameter tp : eClassifier.getETypeParameters()) {
-				EClassifier ec = tp.getEBounds().get(0).getEClassifier();
-				Type ta = this.context.getFor(ec);
-				this.typeArguments_cache.add(ta);
-			}
-		}
-		return this.typeArguments_cache;
+		return this.typeArguments;
 	}
 
 	public List<Type> getSuperTypes() {
