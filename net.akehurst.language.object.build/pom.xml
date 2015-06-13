@@ -10,8 +10,8 @@
   
   <modules>
   	<module>../net.akehurst.language.object.type</module>
-  	<module>../net.akehurst.language.object.link</module>
-  	<module>../net.akehurst.language.object.link.ecore</module>
+  	<module>../net.akehurst.language.object.query.link</module>
+  	<module>../net.akehurst.language.object.query.link.ecore</module>
   </modules>
   
 </project>
